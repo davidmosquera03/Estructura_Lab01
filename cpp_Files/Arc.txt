@@ -1,0 +1,14 @@
+10	Alice   563
+20	Jorge   400
+30	Maria   300
+40	Rony    40	
+50	Carmen  0 
+70	Saul    900	
+80	Mario   300	
+90	Dany    800	
+30	Maria   1000	
+40	Rony    350	
+50	Carmen  870	
+70	Saul    1200	
+80	Mario   210	
+90	Dany	100
