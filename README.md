@@ -1,8 +1,7 @@
 # Estructura de Datos-Laboratorio 1
 ### Integrantes:
  - David Hernández Mosquera 
- - Maria Isabel Solá Valle
- - Kenny Zhu 
+ - Maria Isabel Solá Valle 
 
  ## Carpetas y Contenido
  - Punto1_Java
