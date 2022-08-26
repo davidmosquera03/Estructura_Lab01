@@ -1,0 +1,9 @@
+10	Alice	Kra	310	a@
+20	Jorge	Calle	311	j@
+30	Maria	Avda	315	mm@
+40	Rony	Km5	316	xmm@
+50	Carmen	Calle 18	310	ymm@
+60	Luis	Kra 90	313	zmm@
+70	Saul	Calle 78	316	rmrm@
+80	Mario	Calle 72	300	Cmm2@
+90	Dany	Kra 108	312	fmm@
