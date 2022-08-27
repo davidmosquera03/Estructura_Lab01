@@ -6,18 +6,16 @@
  ## Carpetas y Contenido
  - Punto1_Java
    - Java_Lab01: proyecto de Java que soluciona el ejercicio
-   - Archivos para el ejercicio:
+   - Archivos usados
      - Clientes.txt
      - Facturas.txt
      - Productos.txt
 
-
- - cpp_Files: 
-    - Files_c++: Programa de  busqueda y borrado de registros.
-    - Arc.txt: Archivo de prueba con campos
-        - ID (de busqueda y borrado)
-        - Nombre
-        - Saldo 
+- Punto2: Programas de  lectura, busqueda y borrado en archivo) con 10000 registros
+  - Java_Files
+  - Python_Files 
+  - cpp_Files
+  - Metricas.md: Comparacion de resultados
 
 ## Referencias
   - [Numero de filas en archivo](https://stackoverflow.com/questions/453018/number-of-lines-in-a-file-in-java)
