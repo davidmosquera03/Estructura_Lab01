@@ -15,7 +15,7 @@
   - Java_Files
   - Python_Files 
   - cpp_Files
-  - Metricas.md: Comparacion de resultados
+  - Respuestas.md: Soluciones a preguntas planteadas
 
 ## Referencias
   - [Numero de filas en archivo](https://stackoverflow.com/questions/453018/number-of-lines-in-a-file-in-java)
