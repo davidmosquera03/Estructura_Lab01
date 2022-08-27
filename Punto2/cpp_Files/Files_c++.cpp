@@ -1,43 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void llenar(string file_name){
-    string line,ID,name,balance;
-     bool hay = false;
-     
-    ofstream F(file_name+".txt");
-    cout<<"Is there info? 1-yes 0-false"<<endl;
-    cin>>hay;
-    while(hay){
-        cout<<"ID"<<endl;
-        cin>>ID;
-        cout<<"Name"<<endl;
-        cin>>name;
-        cout<<"Balance (positive value)"<<endl;
-        do{
-            cin>>balance;
-        }while(stoi(balance)<0);
-        if(!(ID.empty()) && !(name.empty()) && !(balance.empty())){
-            line=ID+"\t"+name+"\t"+balance;
-        }
-        F<<line<<endl;
-        cout<<"Is there info? 1-yes 0-false"<<endl;
-        cin>>hay;
-    }
-    
-    F.close();
-}
-
 void leer(string file_name){
     string line;
 
-    ifstream F(file_name+".txt"); // Searches file to open it
-    if(F){ // Check it exists
+    ifstream F(file_name+".txt"); // Busca archivo para abrir
+    if(F){ // Si existe
       while (getline (F, line)) {
-        cout<<line<<endl;
+        cout<<line<<endl; // Escribir lineas
       }
     }else{
-        cout<<"File not found"<<endl;
+        cout<<"Archivo no hallado"<<endl;
     }
     F.close();
 }
@@ -47,18 +20,18 @@ void search(string file_name, string campo){
     bool found=false;
     string d[1];
     
-    ifstream F(file_name+".txt"); // Searches file to open it
+    ifstream F(file_name+".txt"); // Buscar archivo
       while (getline (F, line) and !found) {
-          stringstream ssin(line);
-          ssin >> d[0];
+          stringstream ssin(line); 
+          ssin >> d[0];  // usar streams para obtener campo ID
         if(d[0]==campo){
-            cout<<line<<endl;
+            cout<<line<<endl; // Escribir si es el campo buscado
             found=true;
         }
         
       }
       if(!found){
-          cout<<"ID not found"<<endl;
+          cout<<"ID no hallado"<<endl;
       }
     F.close();
 }
@@ -66,17 +39,17 @@ void search(string file_name, string campo){
 void erase(string file_name, string campo){
     string line;
     string d[1];
-    // Open file to read it
-     ifstream F(file_name+".txt"); // Searches file to open it
+   
+     ifstream F(file_name+".txt"); 
      
-    //Create tempFile to write onto it
+    // Crear archivo temporal para copiar
     ofstream T("temp.txt");
     
      while(!F.eof()){
         getline(F,line);
         stringstream ssin(line);
         ssin >> d[0];
-        if(!(d[0]==campo)){ // Copy if not on register to delete
+        if(!(d[0]==campo)){ // Escribir en archivo temporal si no es el registro por borrar
             T<<line<<endl;
         }
         
@@ -84,10 +57,10 @@ void erase(string file_name, string campo){
     F.close();
     T.close();
     string oF= file_name+".txt";
-    if(remove("Arc.txt")!=0){ // Erase old file
+    if(remove("Clientes.txt")!=0){ // Borrar archivo original
         cout<<"File not deleted"<<endl;
     }
-    if (rename("temp.txt","Arc.txt") != 0){ // Rename temp as original
+    if (rename("temp.txt","Clientes.txt") != 0){ // Renombrar el temporal como el original
 		cout<<"Error in update"<<endl;
 	}
 }
@@ -97,14 +70,15 @@ int main()
     double delta;
     int op;
     string file_name,campo;
-    start = clock(); //start count for runtime
+    start = clock(); // Iniciar conteo del tiempo de ejecución
     do{
-        cout<<"1.Find register based on ID"<<endl;
-        cout<<"2.Delete register based on ID"<<endl;
-        cout<<"3.Exit"<<endl;
+        cout<<"1.Leer registro según campo ID"<<endl;
+        cout<<"2.Borrar registro según campo ID"<<endl;
+        cout<<"3.Leer Registros"<<endl;
+        cout<<"4. Salir"<<endl;
         cin>>op;
         
-        while(op<1 or op>3){
+        while(op<1 or op>4){
             cout<<"No valido"<<endl;
             cin>>op;
         }
@@ -113,21 +87,25 @@ int main()
             
               cout<<"ID a buscar:"<<endl;
               cin>>campo;
-              search("Arc",campo);
+              search("Clientes",campo);
               break;
               
             case 2:
             
               cout<<"ID a eliminar"<<endl;
               cin>>campo;
-              erase("Arc",campo);
+              erase("Clientes",campo);
+              break;
+              
+            case 3: 
+              leer("Clientes");
               break;
               
     }
 
-    }while(op!=3);
-    end = clock(); // End count for runtime
-    delta = double(end - start) / double(CLOCKS_PER_SEC);
-    cout<<"runtime: "<<delta<<" sec"<<endl;
+    }while(op!=4);
+    end = clock(); // Finalizar conteo de tiempo de ejecución
+     delta = double(end - start) / double(CLOCKS_PER_SEC);
+     cout<<"runtime: "<<delta<<" sec"<<endl;
     return 0;
 }
