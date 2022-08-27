@@ -162,18 +162,96 @@ public class Java_Lab01 {
             }
         }
     }
+public static void deudas() {
+        try {
+            BufferedReader reg_c = new BufferedReader(new FileReader("Clientes.txt")); // Abre archivo Clientes
+            BufferedReader reg_f = new BufferedReader(new FileReader("Facturas.txt")); // Abre archivo Facturas
+            BufferedReader reg_p = new BufferedReader(new FileReader("Productos.txt")); // Abre archivo Facturas
+
+            String line_c = reg_c.readLine();
+            String line_f = reg_f.readLine();
+            //Leer primeros registros
+
+            while (line_c != null && line_f != null) { // Detenerse cuando uno de los dos archivos se acabe
+
+                String cdata[] = line_c.split("\t");
+                String fdata[] = line_f.split("\t");
+                // Obtener datos con split
+                String cedc = cdata[0];
+                String cedf = fdata[0];
+
+                // Obtener valores de cedulas para comparar
+                if (!cedc.equals(cedf)) { // Cedulas diferentes, avanzar en Clientes
+                    line_c = reg_c.readLine();
+
+                } else {
+
+                    int totc = 0; //Acumulador de deuda por Cliente con factura
+                    while (cedc.equals(cedf)) {
+
+                        // Mismas cedulas, recorrer Facturas y Productos
+                        boolean found = false;
+                        String prodf = fdata[2]; // Numero de producto en Factura
+                        int cantidad = Integer.parseInt(fdata[3]); 
+                        int valor = 0; // Valor del producto (Por buscar en Productos)
+
+                        while (!found) { // Mientras no se ha hallado el producto en Productos
+                            String line_p = reg_p.readLine();
+                            if (line_p == null) { // Si se llega al fin de Productos, volver al inicio reabriendolo
+                                reg_p.close();
+                                reg_p = new BufferedReader(new FileReader("Productos.txt"));
+                                line_p = reg_p.readLine();
+                            }
+                            String pdata[] = line_p.split("\t");
+                            String prodp = pdata[0];
+                            // Obtener numero de producto en registro actual de Productos
+                            if (prodp.equals(prodf)) {
+                                valor = Integer.parseInt(pdata[2]); // Guardar valor de producto
+                                found = true;
+                            }
+
+                        }
+
+                        //System.out.println("cantidad es  "+cantidad+" valor es "+valor);
+                        totc = totc + (cantidad * valor);
+                        //System.out.println("totc es "+totc);
+
+                        line_f = reg_f.readLine();
+                        if (line_f == null) { //Salir si acaban las facturas
+                            break;
+                        }
+                        fdata = line_f.split("\t");
+                        cedf = fdata[0];
+
+                    }
+                    System.out.println("Cedula: " + cedc + " Nombre: " + cdata[1] + " Celular: " + cdata[3] + " Deuda: " + totc);
+                }
+
+            }
+            reg_c.close();
+            reg_f.close();
+            reg_p.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        //Ordenar Archivos
         sortF("Clientes");
         sortF("Facturas");
-        System.out.println("Facturas");
-        LeerFac(sc, "Facturas");
+        
         /*mostrar a clientes con facturas: 
         cedula-nombre-celular-deudas
          */
+        System.out.println("Clientes con Facturas");
+        deudas();
 
         //producto mas vendido
+        System.out.println("FIN DEL PROGRAMA");
     }
 }
