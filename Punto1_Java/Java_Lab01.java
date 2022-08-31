@@ -238,20 +238,83 @@ public static void deudas() {
 
     }
 
+    public static void mas_vendido(){
+        
+        try{
+            BufferedReader reg_f = new BufferedReader(new FileReader("Facturas.txt"));
+            BufferedReader reg_p = new BufferedReader(new FileReader("Productos.txt"));
+            
+            
+            int n_max = -1;
+            String p_max ="";
+            int cant_p=0;
+            
+            String line_f = reg_f.readLine();
+            String line_p = reg_p.readLine();
+            while(line_p!=null){ // Hasta revisar todos los productos
+                String pdata[] = line_p.split("\t"); 
+                String fdata[] = line_f.split("\t");
+                String prodp = pdata[0];
+                String prodf = fdata[2];
+                
+                if(prodp.equals(prodf)){ // Aumentar cantidad de producto actual si coincide en factura
+                    cant_p+=Integer.parseInt(fdata[3]);
+                    
+                }
+                line_f = reg_f.readLine();
+                if(line_f==null){
+                    if(cant_p>n_max){
+                        n_max=cant_p;
+                        p_max =pdata[1];
+                    }
+                    reg_f.close();
+                    reg_f = new BufferedReader(new FileReader("Facturas.txt")); // Reabrir facturas
+                    cant_p=0;
+                    line_p = reg_p.readLine(); // Cambiar de producto
+                    line_f = reg_f.readLine();
+                }
+                
+                
+            }
+             System.out.println("Mas vendido es "+p_max+" Con "+n_max+" unidades");
+        }catch(IOException ex){
+           ex.printStackTrace(); 
+           
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        //Mostrar desordenados
+        System.out.println("Clientes");
+        LeerC(sc, "Clientes");
+        System.out.println("");
+
+        System.out.println("Facturas");
+        LeerFac(sc, "Facturas");
+        System.out.println("");
 
         //Ordenar Archivos
         sortF("Clientes");
         sortF("Facturas");
         
+        System.out.println("Clientes");
+        LeerC(sc, "Clientes");
+        System.out.println("");
+        
+        System.out.println("Facturas");
+        LeerFac(sc, "Facturas");
+        System.out.println("");
+
         /*mostrar a clientes con facturas: 
         cedula-nombre-celular-deudas
          */
         System.out.println("Clientes con Facturas");
         deudas();
 
-        //producto mas vendido
+        //producto mas vendido por cantidad
+        mas_vendido();
+
         System.out.println("FIN DEL PROGRAMA");
     }
 }
