@@ -17,7 +17,7 @@ public class Files_java {
 
     public static void main(String[] args) {
 
-        File file = new File("Clientes.txt");
+        File file = new File("Punto2\\Java_Files\\Clientes.txt");
 
         int opciones = 0;
         do {
@@ -192,7 +192,7 @@ public class Files_java {
             leer.close();
 
             boolean borrarf = file.delete();
-            boolean actualizar = tempFile.renameTo(new File("Clientes.txt"));
+            boolean actualizar = tempFile.renameTo(new File("Punto2\\Java_Files\\Clientes.txt"));
 
         } catch (IOException e) {
             e.printStackTrace();
