@@ -97,30 +97,30 @@ reg_f.println("Hello World");
 ```
 Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instanciar objetos para poder realizar las operaciones.
 
-## b) Métricas 
-
-### Runtime promedio (en segundos)
+## b)
+## Runtime promedio (en segundos)
 
 |            | Java      | Python |  C++    |
 |------------|-----------|------- |---------|
-|Buscar registro 1|      X    |      X |     0.0002885s    |
-|Buscar registro 10000|   X   |      X |   0.005393s  |
-|Borrar registro 1|     X     |      X |    0.024419s     |
-|Borrar registro 10000|     X     |      X |   0.024002s     |
-|Leer registros |     X     |      X |    0.0589s     |
+|Buscar registro 1|    0.046s   |      0.0107319355010986s |     0.0002885s    |
+|Buscar registro 10000|   0.047s  |      0.0069217681884766s |   0.005393s  |
+|Borrar registro 1|      0.057s   |     0.0065503120422363 |    0.024419s     |
+|Borrar registro 10000|     0.056s    |      0.0103318691253662 |   0.024002s     |
+|Leer registros |      1.992s    |      0.0086638927459717 |    0.0589s     |
 
 
-### Lineas de codigo 
-
-| Java      | Python |  C++    |
-|-----------|------- |---------|
-|      X |    X     |111|
-
-### Complejidad 
+## Lineas de codigo 
 
 | Java      | Python |  C++    |
 |-----------|------- |---------|
-| O( N )    |   O( N )  |O( N )|
+|    213    |   116  |   111   |
+
+## Complejidad 
+
+| Java     | Python |  C++    |
+|----------|------- |---------|
+|   O(n)   | O(N) |  O(n)   |
+
 
 **c) En qué se diferencian (si es que se diferencian) los algoritmos que trabajan sobre archivos en la actualidad de los vistos en clase? Explicar su respuesta.**
 Los algortimos trabajados en clase de abrir, cerrar, leer y escribir archivos son iguales a los trabajados en la actualidad. Sin embargo el método de actualizar archivos en la práctica si ha cambiado.
