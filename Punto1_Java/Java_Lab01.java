@@ -14,7 +14,7 @@ public class Java_Lab01 {
         boolean hay = false;
         while (hay == false) {
             try {
-                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                BufferedReader br = new BufferedReader(new FileReader("Punto1_Java\\"+file_name + ".txt"));
                 String line = null;
 
                 while ((line = br.readLine()) != null) {
@@ -36,7 +36,7 @@ public class Java_Lab01 {
         boolean hay = false;
         while (hay == false) {
             try {
-                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                BufferedReader br = new BufferedReader(new FileReader("Punto1_Java\\"+file_name + ".txt"));
                 String line = null;
 
                 while ((line = br.readLine()) != null) {
@@ -64,7 +64,7 @@ public class Java_Lab01 {
          */
         int result = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+            BufferedReader br = new BufferedReader(new FileReader("Punto1_Java\\"+file_name + ".txt"));
             LineNumberReader count = new LineNumberReader(br);
             while (count.readLine() != null) {
 
@@ -83,7 +83,7 @@ public class Java_Lab01 {
     public static void sortF(String file_name) {
         String data[] = new String[sizeF(file_name)]; // Arreglo almacena contenido de cada linea
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt")); // Abre archivo
+            BufferedReader br = new BufferedReader(new FileReader("Punto1_Java\\"+file_name + ".txt")); // Abre archivo
             String line = null;
 
             int i = 0;
@@ -99,7 +99,7 @@ public class Java_Lab01 {
 
             br.close(); // Cierra Archivo
 
-            FileWriter outFile = new FileWriter(file_name + ".txt", false); // Reabre en modo reescritura
+            FileWriter outFile = new FileWriter("Punto1_Java\\"+file_name + ".txt", false); // Reabre en modo reescritura
             PrintWriter register = new PrintWriter(outFile);
 
             for (int j = 0; j < data.length; j++) { // Escribe cada linea del arreglo ordenado en el archivo
@@ -164,9 +164,9 @@ public class Java_Lab01 {
     }
 public static void deudas() {
         try {
-            BufferedReader reg_c = new BufferedReader(new FileReader("Clientes.txt")); // Abre archivo Clientes
-            BufferedReader reg_f = new BufferedReader(new FileReader("Facturas.txt")); // Abre archivo Facturas
-            BufferedReader reg_p = new BufferedReader(new FileReader("Productos.txt")); // Abre archivo Facturas
+            BufferedReader reg_c = new BufferedReader(new FileReader("Punto1_Java\\"+"Clientes.txt")); // Abre archivo Clientes
+            BufferedReader reg_f = new BufferedReader(new FileReader("Punto1_Java\\"+"Facturas.txt")); // Abre archivo Facturas
+            BufferedReader reg_p = new BufferedReader(new FileReader("Punto1_Java\\"+"Productos.txt")); // Abre archivo Facturas
 
             String line_c = reg_c.readLine();
             String line_f = reg_f.readLine();
@@ -199,10 +199,10 @@ public static void deudas() {
                             String line_p = reg_p.readLine();
                             if (line_p == null) { // Si se llega al fin de Productos, volver al inicio reabriendolo
                                 reg_p.close();
-                                reg_p = new BufferedReader(new FileReader("Productos.txt"));
+                                reg_p = new BufferedReader(new FileReader("Punto1_Java\\"+"Productos.txt"));
                                 line_p = reg_p.readLine();
                             }
-                            String pdata[] = line_p.split("\t");
+                            String pdata[] = line_p.split("\t");                           
                             String prodp = pdata[0];
                             // Obtener numero de producto en registro actual de Productos
                             if (prodp.equals(prodf)) {
@@ -241,8 +241,8 @@ public static void deudas() {
      public static void mas_vendido() {
 
         try {
-            BufferedReader reg_f = new BufferedReader(new FileReader("Facturas.txt"));
-            BufferedReader reg_p = new BufferedReader(new FileReader("Productos.txt"));
+            BufferedReader reg_f = new BufferedReader(new FileReader("Punto1_Java\\"+"Facturas.txt"));
+            BufferedReader reg_p = new BufferedReader(new FileReader("Punto1_Java\\"+"Productos.txt"));
 
             int n_max = -1;
             String p_max = "";
@@ -267,7 +267,7 @@ public static void deudas() {
                         p_max = pdata[1]; // Guardar Nombre
                     }
                     reg_f.close();
-                    reg_f = new BufferedReader(new FileReader("Facturas.txt")); // Reabrir facturas
+                    reg_f = new BufferedReader(new FileReader("Punto1_Java\\"+"Facturas.txt")); // Reabrir facturas
                     cant_p = 0; // Reiniciar conteo 
                     line_p = reg_p.readLine(); // Cambiar de producto
                     line_f = reg_f.readLine();
