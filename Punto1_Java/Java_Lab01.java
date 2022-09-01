@@ -202,7 +202,7 @@ public static void deudas() {
                                 reg_p = new BufferedReader(new FileReader("Punto1_Java\\"+"Productos.txt"));
                                 line_p = reg_p.readLine();
                             }
-                            String pdata[] = line_p.split("\t");                           
+                            String pdata[] = line_p.split(",");                           
                             String prodp = pdata[0];
                             // Obtener numero de producto en registro actual de Productos
                             if (prodp.equals(prodf)) {
@@ -251,7 +251,7 @@ public static void deudas() {
             String line_f = reg_f.readLine();
             String line_p = reg_p.readLine();
             while (line_p != null) { // Hasta revisar todos los productos
-                String pdata[] = line_p.split("\t");
+                String pdata[] = line_p.split(",");
                 String fdata[] = line_f.split("\t");
                 String prodp = pdata[0];
                 String prodf = fdata[2];
@@ -306,7 +306,8 @@ public static void deudas() {
         System.out.println("Facturas");
         LeerFac(sc, "Facturas");
         System.out.println("");
-
+        
+        
         /*mostrar a clientes con facturas: 
         cedula-nombre-celular-deudas
          */
