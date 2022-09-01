@@ -23,5 +23,12 @@
   - [Split in C++](https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/)
   - [Measure runtime in C++](https://www.geeksforgeeks.org/measure-execution-time-with-high-precision-in-c-c/)
   - [Sandbox usada para Punto 2](https://www.onlinegdb.com/online_c++_compiler) 
+  - [Python read Files](https://www.w3schools.com/python/python_file_write.asp)
+  - [Python search](https://pynative.com/python-search-for-a-string-in-text-files/)
+  - [Delete file contents python](https://www.codegrepper.com/code-examples/python/python+delete+file+contents)
+  - [Java read Files](https://www.w3schools.com/java/java_files_read.asp)
+  - [Java Search](https://www.techiedelight.com/read-text-file-line-by-line-java/)
+  - [Delete file contents java](https://www.geeksforgeeks.org/java-program-delete-certain-text-file/)
+
 
 
