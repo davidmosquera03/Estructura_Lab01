@@ -123,7 +123,9 @@ Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instan
 | O( N )    |   O( N )  |O( N )|
 
 **c) En qué se diferencian (si es que se diferencian) los algoritmos que trabajan sobre archivos en la actualidad de los vistos en clase? Explicar su respuesta.**
-
+Los algortimos trabajados en clase de abrir, cerrar, leer y escribir archivos son iguales a los trabajados en la actualidad. Sin embargo el método de actualizar archivos en la práctica si ha cambiado.
+Antes se usaban 3 archivos (como se muestra en las diapositivas de clase), el original, el creado con los cambios y en el que se guarda el cruce de los primeros dos archivos y remplaza al original.
+Como se explicó en clase, hoy no se suele crear otro archivo con los cambios. Se utiliza un algortimo con una "lógica" que permita pasar la información actualizada al nuevo archivo que remplaza al original.
 
 
 

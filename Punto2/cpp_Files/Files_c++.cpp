@@ -4,7 +4,7 @@ using namespace std;
 void leer(string file_name){
     string line;
 
-    ifstream F(file_name+".txt"); // Busca archivo para abrir
+    ifstream F(file_name); // Busca archivo para abrir
     if(F){ // Si existe
       while (getline (F, line)) {
         cout<<line<<endl; // Escribir lineas
@@ -20,7 +20,7 @@ void search(string file_name, string campo){
     bool found=false;
     string d[1];
     
-    ifstream F(file_name+".txt"); // Buscar archivo
+    ifstream F(file_name); // Buscar archivo
       while (getline (F, line) and !found) {
           stringstream ssin(line); 
           ssin >> d[0];  // usar streams para obtener campo ID
@@ -40,10 +40,10 @@ void erase(string file_name, string campo){
     string line;
     string d[1];
    
-     ifstream F(file_name+".txt"); 
+     ifstream F(file_name); 
      
     // Crear archivo temporal para copiar
-    ofstream T("temp.txt");
+    ofstream T("Punto2\\cpp_Files\\temp.txt");
     
      while(!F.eof()){
         getline(F,line);
@@ -56,11 +56,10 @@ void erase(string file_name, string campo){
      }
     F.close();
     T.close();
-    string oF= file_name+".txt";
-    if(remove("Clientes.txt")!=0){ // Borrar archivo original
+    if(remove("Punto2\\cpp_Files\\Clientes.txt")!=0){ // Borrar archivo original
         cout<<"File not deleted"<<endl;
     }
-    if (rename("temp.txt","Clientes.txt") != 0){ // Renombrar el temporal como el original
+    if (rename("Punto2\\cpp_Files\\temp.txt","Punto2\\cpp_Files\\Clientes.txt") != 0){ // Renombrar el temporal como el original
 		cout<<"Error in update"<<endl;
 	}
 }
@@ -71,6 +70,7 @@ int main()
     int op;
     string file_name,campo;
     start = clock(); // Iniciar conteo del tiempo de ejecución
+    String path="Punto2\\cpp_Files\\Clientes.txt";
     do{
         cout<<"1.Leer registro según campo ID"<<endl;
         cout<<"2.Borrar registro según campo ID"<<endl;
@@ -87,18 +87,18 @@ int main()
             
               cout<<"ID a buscar:"<<endl;
               cin>>campo;
-              search("Clientes",campo);
+              search(path,campo);
               break;
               
             case 2:
             
               cout<<"ID a eliminar"<<endl;
               cin>>campo;
-              erase("Clientes",campo);
+              erase(path,campo);
               break;
               
             case 3: 
-              leer("Clientes");
+              leer(path);
               break;
               
     }
