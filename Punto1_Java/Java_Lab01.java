@@ -1,4 +1,4 @@
-package java_lab01;
+package Punto1_Java;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
