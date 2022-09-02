@@ -15,9 +15,9 @@ public class Files_java {
     static int choose;
     
     public static void main(String[] args) {
-
+        
         File file = new File("Punto2\\Java_Files\\Clientes.txt");
-
+        long startTime = System.nanoTime();
         int opciones = 0;
         do {
 
@@ -86,7 +86,10 @@ public class Files_java {
 
         } while (opciones != 4);
 
-        
+        long endTime = System.nanoTime();
+        long totalTime = endTime - startTime;
+        double tot = totalTime/1000000000;
+        System.out.println("Tiempo "+tot); // Registra tiempo de nanosegundos a segundos
     }
 
     static void leer(File file) {

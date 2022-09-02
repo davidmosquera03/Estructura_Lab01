@@ -102,17 +102,20 @@ Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instan
 
 |            | Java      | Python |  C++    |
 |------------|-----------|------- |---------|
-|Buscar registro 1|    0.046s   |  2.97143s |     0.0002885s    |
-|Buscar registro 10000|   0.047s  |  3.76329469s |   0.005393s  |
-|Borrar registro 1|      0.057s   |  3.254875s |    0.024419s     |
-|Borrar registro 10000|  0.056s  |  3.5780220s |   0.024002s     |
-|Leer registros |      1.992s    |     5.914s |    0.0589s     |
+|Buscar registro 1|    3s  |  2.97143s |     0.0002885s    |
+|Buscar registro 10000|   4s |  3.76329469s |   0.005393s  |
+|Borrar registro 1|      4s   |  3.254875s |    0.024419s     |
+|Borrar registro 10000|  5s |  3.5780220s |   0.024002s     |
+|Leer registros |      7s    |     5.914s |    0.0589s     |
 
 ### Conclusiones:
-- C++ es el más rapido, le sigue Java.
-- Python es el más lento, toda operación le tomó más de 2 segundos
+- C++ fue el más rápido, luego Python con una gran diferencia.
+- Java es el más lento, pues es despues de muchas mas iteraciones que su velocidad se demuestra mas eficaz.
+[**](https://www.quora.com/Why-is-Java-slower-than-Python-and-C++-Leetcode-solutions-runtime-distribution-Is-that-always-the-case)
 - Borrar el registro 1 o 10000 toma tiempo similar, puesto que involucra de todas formas copiar el archivo original
 - Leer el registro 1 claramente toma menos tiempo que leer el ultimo, al requerir menos iteraciones
+
+
 ## Lineas de codigo 
 
 | Java      | Python |  C++    |
@@ -124,7 +127,8 @@ Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instan
 | Java     | Python |  C++    |
 |----------|------- |---------|
 |   O(n)   | O(N) |  O(n)   |
-
+Puesto que la estrucura mas compleja fueron ciclos, que realizan N operaciones, la complejidad es esta.
+No se usó ninguna recursividad, ni ningun ciclo aninado que huberian dejado complejidades logaritmicas o exponenciales.
 
 **c) En qué se diferencian (si es que se diferencian) los algoritmos que trabajan sobre archivos en la actualidad de los vistos en clase? Explicar su respuesta.**
 Los algortimos trabajados en clase de abrir, cerrar, leer y escribir archivos son iguales a los trabajados en la actualidad. Sin embargo el método de actualizar archivos en la práctica si ha cambiado.
