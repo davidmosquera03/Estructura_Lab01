@@ -176,8 +176,8 @@ public class Files_java {
             escribir.close();
             leer.close();
 
-            boolean borrarf = file.delete();
-            boolean actualizar = tempFile.renameTo(new File("Punto2\\Java_Files\\Clientes.txt"));
+             file.delete();
+            tempFile.renameTo(new File("Punto2\\Java_Files\\Clientes.txt"));
 
         } catch (IOException e) {
             e.printStackTrace();
