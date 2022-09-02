@@ -14,7 +14,6 @@ public class Files_java {
     static Scanner sc = new Scanner(System.in);
     static int choose;
     
-
     public static void main(String[] args) {
 
         File file = new File("Punto2\\Java_Files\\Clientes.txt");
@@ -111,7 +110,8 @@ public class Files_java {
     }
 
     static void buscar(File file, int choose, String palabra) {
-
+        lineasTotales=0;
+        coincidencias=0;
         try {
 
             // si el archivo existe
@@ -134,21 +134,6 @@ public class Files_java {
                         System.out.println("En la linea: " + lineasTotales + " se encontro el argumento: " + palabra);
                         System.out.println(" ");
                     }
-
-                    // Recorro el arreglo de palabras
-                    // for (int i = 0; i < palabras.length; i++) {
-                    // si la palabra es igual a la que estoy buscando
-                    // debe entrar al condicional
-                    // if(palabras[i].equals(palabra)) {
-
-                    // coincidencias++;
-                    // System.out.println("Esta es la linea completa");
-                    // System.out.println(lineaLeida);
-                    // System.out.println("En la linea: " + lineasTotales + " se encontro el
-                    // argumento: " + palabra );
-                    // System.out.println(" ");
-                    // }
-                    // }
 
                 }
                 LeerArchivo.close();
@@ -183,9 +168,6 @@ public class Files_java {
                     escribir.write(LineaActual + System.getProperty("line.separator"));
 
                 }
-
-                
-
             }
 
             escribir.close();

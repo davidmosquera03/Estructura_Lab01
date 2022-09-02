@@ -1,49 +1,42 @@
-
-from pickle import TRUE
 import os
+import time
 
-
-
-
+path = "Punto2\\Python_Files\\Clientes.txt"
 def buscar(buscar1):
-    
-    with open("Clientes.txt", 'r') as myfile:
-       
+    found = False
+    with open(path, 'r') as myfile:
         for line in myfile:
-            Nlinea=line.split('\t')
-            if buscar1 in Nlinea:
-                print(f'{Nlinea}')
+            Nlinea=line.split('\t')[0]
+            if buscar1==Nlinea:
+                found = True
+                print(line)
+    if not found:
+        print("registro no hallado")
+    myfile.close()
         
-        
-
 def borrar(borrado):
        
     lineas = list()
-    with open("Clientes.txt", "r") as input:
+    with open(path, "r") as input:
         lineas = input.readlines()
-        
-        
-    with open("temp.txt", "w") as output:
-            
-            # iteracion osbre todas las lineas de la fila
+
+    with open("Punto2\\Python_Files\\temp.txt", "w") as output:
+            # iteracion sobre todas las lineas de la fila
         for index, line in enumerate(lineas):
             if index not in [int(borrado)-1]:
-                output.write(line)
-               
-                    
-        print("La linea a sido borrada exitosamente")
-
-    # replace file with original name
-    os.replace('temp.txt', 'Clientes.txt')
-
+                output.write(line)              
+        print("La linea ha sido borrada exitosamente")
+    # remplazar a temp como archivo original
+    os.replace("Punto2\\Python_Files\\temp.txt", path)
+    input.close()
+    output.close()
 
 def leer():
-    files = open("Clientes.txt", 'r') 
+    files = open(path, 'r') 
     for line in files:
         print(line)
     files.close()
     
-
 def opcionNumero():
     correcto=False
     numero=0
@@ -53,14 +46,11 @@ def opcionNumero():
             correcto=True
         except ValueError:
             print('Error, introduce un numero entero')
-     
     return numero
 
-
-
+start_time = time.time()  
 salir = False
 opcion = 0
-
 while not salir:
     print("     Menú de opciones      ")
     print ("Buscar registro según campo ID .........   1")
@@ -96,7 +86,7 @@ while not salir:
         print("Ha ingresado a la opción de leer el registro:")
         print("--------------------------------------------------")
         print("")
-        
+
         leer()
         
     elif opcion == 4:
@@ -107,3 +97,4 @@ while not salir:
         print ("Introduce un numero entre 1 y 3")
 
 print ("Fin")
+print("--- %s seconds ---" % (time.time() - start_time))

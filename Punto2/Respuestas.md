@@ -102,18 +102,22 @@ Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instan
 
 |            | Java      | Python |  C++    |
 |------------|-----------|------- |---------|
-|Buscar registro 1|    0.046s   |      0.0107319355010986s |     0.0002885s    |
-|Buscar registro 10000|   0.047s  |      0.0069217681884766s |   0.005393s  |
-|Borrar registro 1|      0.057s   |     0.0065503120422363 |    0.024419s     |
-|Borrar registro 10000|     0.056s    |      0.0103318691253662 |   0.024002s     |
-|Leer registros |      1.992s    |      0.0086638927459717 |    0.0589s     |
+|Buscar registro 1|    0.046s   |  2.97143s |     0.0002885s    |
+|Buscar registro 10000|   0.047s  |  3.76329469s |   0.005393s  |
+|Borrar registro 1|      0.057s   |  3.254875s |    0.024419s     |
+|Borrar registro 10000|  0.056s  |  3.5780220s |   0.024002s     |
+|Leer registros |      1.992s    |     5.914s |    0.0589s     |
 
-
+### Conclusiones:
+- C++ es el más rapido, le sigue Java.
+- Python es el más lento, toda operación le tomó más de 2 segundos
+- Borrar el registro 1 o 10000 toma tiempo similar, puesto que involucra de todas formas copiar el archivo original
+- Leer el registro 1 claramente toma menos tiempo que leer el ultimo, al requerir menos iteraciones
 ## Lineas de codigo 
 
 | Java      | Python |  C++    |
 |-----------|------- |---------|
-|    213    |   116  |   111   |
+|    184    |   116  |   111   |
 
 ## Complejidad 
 
