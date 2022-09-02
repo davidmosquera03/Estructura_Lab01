@@ -120,13 +120,14 @@ Nuevamente hay diferentes librerias disponibles, sin embargo es necesario instan
 
 | Java      | Python |  C++    |
 |-----------|------- |---------|
-|    184    |   116  |   111   |
+|    187    |   100  |   111   |
 
 ## Complejidad 
 
-| Java     | Python |  C++    |
-|----------|------- |---------|
-|   O(n)   | O(N) |  O(n)   |
+| Java| Python |  C++    |
+|--|--|--|
+|O(N)|O(N)|O(N)
+
 Puesto que la estrucura mas compleja fueron ciclos, que realizan N operaciones, la complejidad es esta.
 No se usó ninguna recursividad, ni ningun ciclo aninado que huberian dejado complejidades logaritmicas o exponenciales.
 
